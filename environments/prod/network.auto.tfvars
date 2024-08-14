@@ -1,23 +1,23 @@
 network_configs = {
   cloud_nat = {
-    devops-nonprod-uc1 = {
-      project_id = "cap-nonprod-network-0fd3"
-      router     = "router-devops-nonprod-uc1"
-      name       = "nat-devops-nonprod-uc1"
+    devops-prod-uc1 = {
+      project_id = "cap-prod-network-3a4b"
+      router     = "router-devops-prod-uc1"
+      name       = "nat-devops-prod-uc1"
       region     = "us-central1"
     }
   }
   vpc = {
-    devops-nonprod = {
-      project_id                             = "cap-nonprod-network-0fd3"
-      name                                   = "vpc-devops-nonprod"
+    devops-prod = {
+      project_id                             = "cap-prod-network-3a4b"
+      name                                   = "vpc-devops-prod"
       routing_mode                           = "GLOBAL"
       delete_default_internet_gateway_routes = true
       shared_vpc_host                        = true
       subnets = [
         {
-          subnet_name               = "subnet-devops-nonprod-uc1",
-          subnet_ip                 = "10.4.4.0/24",
+          subnet_name               = "subnet-devops-prod-uc1",
+          subnet_ip                 = "10.2.2.0/24",
           subnet_region             = "us-central1",
           subnet_private_access     = "true"
           subnet_flow_logs          = "true"
@@ -27,26 +27,26 @@ network_configs = {
         }
       ]
       secondary_ranges = {
-        subnet-devops-nonprod-uc1 = [
+        subnet-devops-prod-uc1 = [
           {
-            range_name    = "secrange-devops-nonprod-pods-uc1"
-            ip_cidr_range = "100.94.0.0/16"
+            range_name    = "secrange-devops-prod-pods-uc1"
+            ip_cidr_range = "100.90.0.0/16"
           },
           {
-            range_name    = "secrange-devops-nonprod-svc-uc1"
-            ip_cidr_range = "100.95.0.0/16"
+            range_name    = "secrange-devops-prod-svc-uc1"
+            ip_cidr_range = "100.91.0.0/16"
           }
         ]
       }
       routers = {
         uc1 = {
-          name   = "router-devops-nonprod-uc1"
+          name   = "router-devops-prod-uc1"
           region = "us-central1"
         }
       }
       routes = [
         {
-          name              = "route-devops-nonprod-intgwy"
+          name              = "route-devops-prod-intgwy"
           description       = ""
           destination_range = "0.0.0.0/0"
           tags              = ""
@@ -55,7 +55,7 @@ network_configs = {
       ]
       firewall_rules = [
         {
-          name               = "fwr-devops-nonprod-egr-allow-default"
+          name               = "fwr-devops-prod-egr-allow-default"
           description        = "default egress allow"
           direction          = "EGRESS"
           priority           = 65534

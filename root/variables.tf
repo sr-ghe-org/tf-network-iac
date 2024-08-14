@@ -17,12 +17,12 @@ variable "network_configs" {
       region                              = string
       name                                = string
       router                              = string
-      enable_dynamic_port_allocation      = optional(bool, true)
-      enable_endpoint_independent_mapping = optional(bool, false)
+      enable_dynamic_port_allocation      = optional(bool)
+      enable_endpoint_independent_mapping = optional(bool)
       min_ports_per_vm                    = optional(number)
       max_ports_per_vm                    = optional(number)
-      log_config_enable                   = optional(bool, true)
-      log_config_filter                   = optional(string, "ALL")
+      log_config_enable                   = optional(bool)
+      log_config_filter                   = optional(string)
     }))
     vpc = optional(map(object({
       project_id                             = string
@@ -78,3 +78,4 @@ variable "network_configs" {
     })), {})
   })
 }
+
