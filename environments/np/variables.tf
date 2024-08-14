@@ -29,7 +29,6 @@ variable "network_configs" {
       name                                   = string
       routing_mode                           = string
       delete_default_internet_gateway_routes = bool
-      shared_vpc_host                        = bool
       subnets = list(object(
         {
           subnet_name               = string,
