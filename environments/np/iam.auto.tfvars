@@ -4,8 +4,8 @@ iam_configs = {
       project_id            = "cap-nonprod-wif-bee9"
       service_account_email = "cap-dep-nonprod-nonprod-sa-wif@cap-nonprod-wif-bee9.iam.gserviceaccount.com"
       roles = [
-        "roles/compute.networkAdmin",
-        "roles/compute.securityAdmin"
+        # "roles/compute.networkAdmin",
+        # "roles/compute.securityAdmin"
       ]
     }
   }
