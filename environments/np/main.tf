@@ -1,8 +1,5 @@
-/*
-# Example
-
-module "my_nonprod_resource" {
-    source = "../../modules/my-module"
-    config = var.config
+module "mgz" {
+  source          = "../../root"
+  network_configs = var.network_configs
+  iam_configs     = var.iam_configs
 }
-*/
