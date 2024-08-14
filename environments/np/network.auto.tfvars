@@ -1,12 +1,4 @@
 network_configs = {
-  cloud_nat = {
-    devops-nonprod-uc1 = {
-      project_id = "cap-nonprod-network-0fd3"
-      router     = "router-devops-nonprod-uc1"
-      name       = "nat-devops-nonprod-uc1"
-      region     = "us-central1"
-    }
-  }
   vpc = {
     devops-nonprod = {
       project_id                             = "cap-nonprod-network-0fd3"
@@ -44,15 +36,7 @@ network_configs = {
           region = "us-central1"
         }
       }
-      routes = [
-        {
-          name              = "route-devops-nonprod-intgwy"
-          description       = ""
-          destination_range = "0.0.0.0/0"
-          tags              = ""
-          next_hop_internet = "true"
-        }
-      ]
+      routes = []
       firewall_rules = [
         {
           name               = "fwr-devops-nonprod-egr-allow-default"
