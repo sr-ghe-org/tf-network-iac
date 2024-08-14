@@ -46,7 +46,6 @@ module "vpc" {
   project_id                             = each.value.project_id
   network_name                           = each.value.name
   routing_mode                           = each.value.routing_mode
-  shared_vpc_host                        = each.value.shared_vpc_host
   delete_default_internet_gateway_routes = each.value.delete_default_internet_gateway_routes
   subnets                                = each.value.subnets
   secondary_ranges                       = each.value.secondary_ranges
