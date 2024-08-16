@@ -49,6 +49,7 @@ module "vpc" {
   delete_default_internet_gateway_routes = each.value.delete_default_internet_gateway_routes
   subnets                                = each.value.subnets
   secondary_ranges                       = each.value.secondary_ranges
+  depends_on                             = [google_project_iam_member.sa_role_binding]
 }
 
 module "routes" {
