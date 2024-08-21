@@ -1,3 +1,12 @@
+/*
+  us-central1 - IOWA
+  nane1 - northamerica-northeast1
+  nane2 - northamerica-northeast2
+
+  Please note : subnet_flow_logs_sampling is set to 0.1 sec.
+*/
+
+
 network_configs = {
   cloud_nat = {
     devops-prod-uc1 = {
