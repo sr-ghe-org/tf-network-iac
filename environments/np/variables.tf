@@ -51,7 +51,7 @@ variable "network_configs" {
       })), {})
       routes = optional(list(map(string)), [])
       firewall_rules = object({
-        egress = list(object({
+        egress = optional(list(object({
           name                    = string
           description             = optional(string, null)
           disabled                = optional(bool, null)
@@ -72,8 +72,8 @@ variable "network_configs" {
           log_config = optional(object({
             metadata = string
           }))
-        })),
-        ingress = list(object({
+        })), []),
+        ingress = optional(list(object({
           name                    = string
           description             = optional(string, null)
           disabled                = optional(bool, null)
@@ -94,7 +94,7 @@ variable "network_configs" {
           log_config = optional(object({
             metadata = string
           }))
-        })),
+        })), []),
       })
     })), {})
   })
