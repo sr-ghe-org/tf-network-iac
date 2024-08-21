@@ -5,6 +5,18 @@ network_configs = {
       router     = "router-devops-prod-uc1"
       name       = "nat-devops-prod-uc1"
       region     = "us-central1"
+    },
+    devops-prod-nane1 = {
+      project_id = "cap-prod-network-3a4b"
+      router     = "router-devops-prod-nane1"
+      name       = "nat-devops-prod-nane1"
+      region     = "northamerica-northeast1"
+    },
+    devops-prod-nane2 = {
+      project_id = "cap-prod-network-3a4b"
+      router     = "router-devops-prod-nane2"
+      name       = "nat-devops-prod-nane2"
+      region     = "northamerica-northeast2"
     }
   }
   vpc = {
@@ -24,7 +36,27 @@ network_configs = {
           subnet_flow_logs_interval = "INTERVAL_30_SEC"
           subnet_flow_logs_sampling = 0.1
           subnet_flow_logs_metadata = "INCLUDE_ALL_METADATA"
-        }
+        },
+        {
+          subnet_name               = "subnet-devops-prod-nane1",
+          subnet_ip                 = "10.5.5.0/24",
+          subnet_region             = "northamerica-northeast1",
+          subnet_private_access     = "true"
+          subnet_flow_logs          = "true"
+          subnet_flow_logs_interval = "INTERVAL_30_SEC"
+          subnet_flow_logs_sampling = 0.1
+          subnet_flow_logs_metadata = "INCLUDE_ALL_METADATA"
+        },
+        {
+          subnet_name               = "subnet-devops-prod-nane2",
+          subnet_ip                 = "10.6.6.0/24",
+          subnet_region             = "northamerica-northeast2",
+          subnet_private_access     = "true"
+          subnet_flow_logs          = "true"
+          subnet_flow_logs_interval = "INTERVAL_30_SEC"
+          subnet_flow_logs_sampling = 0.1
+          subnet_flow_logs_metadata = "INCLUDE_ALL_METADATA"
+        },
       ]
       secondary_ranges = {
         subnet-devops-prod-uc1 = [
@@ -36,12 +68,40 @@ network_configs = {
             range_name    = "secrange-devops-prod-svc-uc1"
             ip_cidr_range = "100.91.0.0/16"
           }
+        ],
+        subnet-devops-prod-nane1 = [
+          {
+            range_name    = "secrange-devops-prod-pods-nane1"
+            ip_cidr_range = "100.92.0.0/16"
+          },
+          {
+            range_name    = "secrange-devops-prod-svc-nane1"
+            ip_cidr_range = "100.93.0.0/16"
+          }
+        ],
+        subnet-devops-prod-nane2 = [
+          {
+            range_name    = "secrange-devops-prod-pods-nane2"
+            ip_cidr_range = "100.96.0.0/16"
+          },
+          {
+            range_name    = "secrange-devops-prod-svc-nane2"
+            ip_cidr_range = "100.97.0.0/16"
+          }
         ]
       }
       routers = {
         uc1 = {
           name   = "router-devops-prod-uc1"
           region = "us-central1"
+        },
+        nane1 = {
+          name   = "router-devops-prod-nane1"
+          region = "northamerica-northeast1"
+        },
+        nane2 = {
+          name   = "router-devops-prod-nane2"
+          region = "northamerica-northeast2"
         }
       }
       routes = [
