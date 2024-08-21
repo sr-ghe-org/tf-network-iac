@@ -1,8 +1,8 @@
 iam_configs = {
   iam_role_bindings = {
     tfc_ws_sa_binding = {
-      project_id            = "cap-prod-network-3a4b"
-      service_account_email = "cap-dep-prod-prod-sa-network@cap-prod-network-3a4b.iam.gserviceaccount.com"
+      project_id            = "cap-nonprod-network-0fd3"
+      service_account_email = "cap-dep-nonprod-np-sa-network@cap-nonprod-network-0fd3.iam.gserviceaccount.com"
       roles = [
         # "roles/compute.networkAdmin",
         # "roles/compute.securityAdmin"
