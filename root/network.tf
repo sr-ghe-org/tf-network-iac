@@ -62,10 +62,11 @@ module "routes" {
 }
 
 module "firewall_rules" {
-  source       = "terraform-google-modules/network/google//modules/firewall-rules"
-  version      = "9.1.0"
-  for_each     = var.network_configs.vpc
-  project_id   = each.value.project_id
-  network_name = module.vpc[each.key].network_name
-  rules        = each.value.firewall_rules
+  source        = "terraform-google-modules/network/google//modules/firewall-rules"
+  version       = "9.1.0"
+  for_each      = var.network_configs.vpc
+  project_id    = each.value.project_id
+  network_name  = module.vpc[each.key].network_name
+  egress_rules  = each.value.firewall_rules.egress
+  ingress_rules = each.value.firewall_rules.ingress
 }

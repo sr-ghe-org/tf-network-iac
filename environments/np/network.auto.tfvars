@@ -53,20 +53,20 @@ network_configs = {
           next_hop_internet = "true"
         }
       ]
-      firewall_rules = [
-        {
-          name               = "fwr-devops-nonprod-egr-allow-default"
-          description        = "default egress allow"
-          direction          = "EGRESS"
-          priority           = 65534
-          destination_ranges = ["0.0.0.0/0"]
-          allow = [{
-            protocol = "all"
-            ports    = []
-          }]
-          deny = []
-        }
-      ]
+      firewall_rules = {
+        egress = [
+          {
+            name               = "fwr-devops-nonprod-egr-allow-default"
+            description        = "default egress allow"
+            priority           = 65534
+            destination_ranges = ["0.0.0.0/0"]
+            allow = [{
+              protocol = "all"
+              ports    = []
+            }]
+            deny = []
+          }
+      ] }
     }
   }
 }
